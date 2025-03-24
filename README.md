@@ -51,44 +51,15 @@ import nidaqmx
 from nidaqmx.constants import AcquisitionType
 import numpy as np
 ```
+El código comienza importando las librerías necesarias para la adquisición de datos y el procesamiento numérico. Se importa nidaqmx, que permite la comunicación con el sistema de adquisición de datos (DAQ) de National Instruments
+
 ```python
-# Definimos la tasa de muestreo en Hz (muestras por segundo)
-sample_rate = 1000  # 1000 muestras por segundo (1 kHz)
-
-# Definimos la duración de la adquisición en minutos
-duration_minutes = 2  
-
-# Convertimos la duración a segundos
+sample_rate = 1000         
+duration_minutes = 2      
 duration_seconds = duration_minutes * 60  
-
-# Calculamos el número total de muestras necesarias
-num_samples = int(sample_rate * duration_seconds)  
-
-# Creamos una tarea para la adquisición de datos con NI-DAQmx
-with nidaqmx.Task() as task:
-    
-    # Agregamos un canal de entrada analógica para medir voltaje en "Dev3/ai0"
-    task.ai_channels.add_ai_voltage_chan("Dev3/ai0")
-    
-    # Configuramos el temporizador de muestreo:
-    task.timing.cfg_samp_clk_timing(
-        sample_rate,  # Tasa de muestreo en Hz
-        sample_mode=AcquisitionType.FINITE,  # Adquisición finita (un número fijo de muestras)
-        samps_per_chan=num_samples  # Número total de muestras a adquirir
-    )
-    
-    # Iniciamos la adquisición de datos
-    task.start()
-
-    # Esperamos hasta que la tarea termine (con un margen extra de 10 segundos)
-    task.wait_until_done(timeout=duration_seconds + 10)
-
-    # Leemos los datos adquiridos del canal
-    data = task.read(number_of_samples_per_channel=num_samples)
-
-# Creamos un eje de tiempo que va desde 0 hasta la duración total en segundos
-time_axis = np.linspace(0, duration_seconds, num_samples, endpoint=False)
+num_samples = int(sample_rate * duration_seconds)
 ```
+En esta sección se definen algunos parametros. Se establece la frecuencia de muestreo en 1000 Hz (sample_rate = 1000), lo que significa que se capturarán 1000 muestras por segundo. La duración de la adquisición se define en minutos (duration_minutes = 2), y se convierte a segundos (duration_seconds = duration_minutes * 60). Luego, se determina el número total de muestras a capturar (num_samples = int(sample_rate * duration_seconds)) multiplicando la frecuencia de muestreo por la duración total en segundos.
 
 ## 3) Filtrado de la Señal:
 
