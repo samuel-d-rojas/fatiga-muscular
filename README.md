@@ -9,12 +9,6 @@
   - numpy
   - matplotlib
   - seaborn
-
-Instalar dependencias:
-```python
-pip install wfdb numpy matplotlib seaborn
-```
-----
 ## Introducción
 
 ## Preparación del Sujeto
