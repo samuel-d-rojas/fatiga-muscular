@@ -14,7 +14,7 @@ En este laboratorio, se realizó la adquisición y análisis de señales electro
 
 _ _ _
 
-## Preparación del Sujeto
+## 1) Preparación del Sujeto
 Se analizó el músculo flexor común de los dedos, encargado de la flexión de los dedos de la mano y fundamental en la prensión y manipulación de objetos. Desde el punto de vista de la fisiología muscular, su frecuencia de contracción se encuentra en un rango de 10 a 50 Hz, lo que indica la actividad eléctrica generada durante su activación. Para analizar esta actividad, se utilizó un sensor de electromiografía (EMG), específicamente el Muscle Sensor v3, junto con un sistema de adquisición de datos (DAQ). Este sistema permitió registrar y almacenar la señal electromiográfica, para posteriormente realizar su correspondiente procesamiento digital. 
 
 <p align="center">
@@ -41,13 +41,13 @@ $$
 
 _ _ _
 
-## Adquisición de la Señal EMG:
+## 2) Adquisición de la Señal EMG:
 
-## Filtrado de la Señal:
+## 3) Filtrado de la Señal:
 
-## Aventanamiento:
+## 4) Aventanamiento:
 
-## Análisis Espectral:
+## 5) Análisis Espectral:
 
 ## Conclusión
 
