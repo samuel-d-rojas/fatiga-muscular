@@ -45,6 +45,15 @@ _ _ _
 
 La adquisición de la señal se realizó utilizando Python, a través de un repositorio de GitHub [2].
 
+```python
+h = [5,6,0,0,7,7,5]
+x = [1,0,1,4,6,6,0,7,0,8]
+y = np.convolve(x,h,mode='full')
+print('h[n] =', h)
+print('x[n] =',x)
+print('y[n] =',y)
+```
+
 ## 3) Filtrado de la Señal:
 
 ## 4) Aventanamiento:
