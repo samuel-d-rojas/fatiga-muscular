@@ -1,5 +1,5 @@
-# Convolución, correlación y transformación 
- LABORATORIO - 2 PROCESAMIENTO DIGITAL DE SEÑALES
+# Señales electromiográficas EMG  
+ LABORATORIO - 4 PROCESAMIENTO DIGITAL DE SEÑALES
 
 
 ## Requisitos
