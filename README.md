@@ -1,4 +1,4 @@
-# Señales electromiográficas EMG  
+# Señales Electromiográficas EMG  
  LABORATORIO - 4 PROCESAMIENTO DIGITAL DE SEÑALES
 
 
