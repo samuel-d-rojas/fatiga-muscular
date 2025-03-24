@@ -82,7 +82,14 @@ Para llevar a cabo la adquisición de datos, se utiliza un bloque with nidaqmx.T
 
 Una vez configurada la tarea, se inicia la adquisición de datos con task.start(). Una vez finalizada la adquisición, se leen los datos con task.read(number_of_samples_per_channel=num_samples), lo que devuelve una lista de valores de voltaje adquiridos por el DAQ.
 
-
+```python
+time_axis = np.linspace(0, duration_seconds, num_samples, endpoint=False)
+with open("datos_adquiridos.txt", "w") as archivo_txt:
+    archivo_txt.write("Tiempo (s)\tVoltaje (V)\n")
+    for t, v in zip(time_axis, data):
+        archivo_txt.write(f"{t:.6f}\t{v:.6f}\n")
+```
+Para poder representar los datos correctamente, se genera un eje de tiempo. La función np.linspace(0, duration_seconds, num_samples, endpoint=False) crea un arreglo de valores que representa el tiempo de cada muestra, comenzando desde 0 segundos hasta la duración total de la adquisición. Es decir genera num_samples valores espaciados uniformemente entre 0 y duration_seconds, sin incluir duration_seconds debido a que endpoint=False.
 
 
 
