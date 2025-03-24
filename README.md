@@ -43,7 +43,7 @@ _ _ _
 
 ## 2) Adquisición de la Señal EMG:
 
-La adquisición de la señal se realizó utilizando Python, a través de un repositorio de GitHub [2].
+La adquisición de la señal se realizó en Python, tomando como referencia un repositorio de GitHub [2].
 
 ```python
 # Importamos las librerías necesarias
