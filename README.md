@@ -46,12 +46,48 @@ _ _ _
 La adquisición de la señal se realizó utilizando Python, a través de un repositorio de GitHub [2].
 
 ```python
-h = [5,6,0,0,7,7,5]
-x = [1,0,1,4,6,6,0,7,0,8]
-y = np.convolve(x,h,mode='full')
-print('h[n] =', h)
-print('x[n] =',x)
-print('y[n] =',y)
+# Importamos las librerías necesarias
+import nidaqmx
+from nidaqmx.constants import AcquisitionType
+import numpy as np
+```
+```python
+# Definimos la tasa de muestreo en Hz (muestras por segundo)
+sample_rate = 1000  # 1000 muestras por segundo (1 kHz)
+
+# Definimos la duración de la adquisición en minutos
+duration_minutes = 2  
+
+# Convertimos la duración a segundos
+duration_seconds = duration_minutes * 60  
+
+# Calculamos el número total de muestras necesarias
+num_samples = int(sample_rate * duration_seconds)  
+
+# Creamos una tarea para la adquisición de datos con NI-DAQmx
+with nidaqmx.Task() as task:
+    
+    # Agregamos un canal de entrada analógica para medir voltaje en "Dev3/ai0"
+    task.ai_channels.add_ai_voltage_chan("Dev3/ai0")
+    
+    # Configuramos el temporizador de muestreo:
+    task.timing.cfg_samp_clk_timing(
+        sample_rate,  # Tasa de muestreo en Hz
+        sample_mode=AcquisitionType.FINITE,  # Adquisición finita (un número fijo de muestras)
+        samps_per_chan=num_samples  # Número total de muestras a adquirir
+    )
+    
+    # Iniciamos la adquisición de datos
+    task.start()
+
+    # Esperamos hasta que la tarea termine (con un margen extra de 10 segundos)
+    task.wait_until_done(timeout=duration_seconds + 10)
+
+    # Leemos los datos adquiridos del canal
+    data = task.read(number_of_samples_per_channel=num_samples)
+
+# Creamos un eje de tiempo que va desde 0 hasta la duración total en segundos
+time_axis = np.linspace(0, duration_seconds, num_samples, endpoint=False)
 ```
 
 ## 3) Filtrado de la Señal:
