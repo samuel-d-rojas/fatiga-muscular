@@ -43,6 +43,8 @@ _ _ _
 
 ## 2) Adquisición de la Señal EMG:
 
+La adquisición de la señal se realizó utilizando Python, a través de un repositorio de GitHub [2].
+
 ## 3) Filtrado de la Señal:
 
 ## 4) Aventanamiento:
@@ -52,6 +54,11 @@ _ _ _
 ## Conclusión
 
 ## Bibliografias
+[1] Pololu, "Muscle Sensor v3 User’s Manual," [Online]. Available: https://www.pololu.com/file/0J745/Muscle_Sensor_v3_users_manual.pdf. [Accessed: 24-Mar-2025].
+
+[2] National Instruments, "NI-DAQmx Python API," GitHub repository, [Online]. Available: https://github.com/ni/nidaqmx-python. [Accessed: 24-Mar-2025].
+
+_ _ _
 
 ## Autores 
 - Samuel Joel Peña Rojas
