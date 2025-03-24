@@ -29,4 +29,4 @@ _ _ _
 ## Bibliografias
 
 ## Autores 
-- Samuel Peña
+- Samuel Joel Peña Rojas
