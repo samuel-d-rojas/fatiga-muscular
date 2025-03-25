@@ -3,7 +3,7 @@
 
 
 ## Requisitos
-- Python 3.9
+- Python 3.12
 - Bibliotecas necesarias:
   - nidaqmx
   - numpy
