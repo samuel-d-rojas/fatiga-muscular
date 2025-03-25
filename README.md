@@ -114,6 +114,7 @@ Se muestra la señal Obtenida.
 
 _ _ _ 
 ## 3) Filtrado de la Señal:
+### Filtro pasa bajos
 ```python
 def pasa_bajo(s, corte, fs, orden):
     nyquist = 0.5 * fs
@@ -122,6 +123,7 @@ def pasa_bajo(s, corte, fs, orden):
     return lfilter(b, a, s)
 señal_pasabajo = pasa_bajo(voltaje, 70, fs, 4)
 ```
+### Filtro pasa altos
 ```python
 def pasa_alto(sf, corte, fs, orden):
     nyquist = 0.5 * fs
