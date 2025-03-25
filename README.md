@@ -152,6 +152,12 @@ La variable señal_filtrada almacena la señal señal_pasabajo filtrada con un f
 
 Al aplicar primero el filtro pasa-bajos con un corte de 70 Hz y luego el filtro pasa-altos con un corte de 10 Hz, se obtiene un filtro pasa-banda, que permite el paso de frecuencias dentro del rango de 10 a 70 Hz, eliminando las frecuencias fuera de este intervalo.
 
+<div style="text-align: center;">
+    <img src="https://github.com/user-attachments/assets/dbf78826-5e96-484c-bf29-9f70c8b328aa" alt="imagen" width="500">
+</div>
+
+
+
 _ _ _ 
 ## 4) Aventanamiento:
 
