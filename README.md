@@ -124,7 +124,7 @@ def pasa_bajo(s, corte, fs, orden):
     return lfilter(b, a, s)
 señal_pasabajo = pasa_bajo(voltaje, 70, fs, 4)
 ```
-La función pasa_bajo recibe como parámetros una señal s, la frecuencia de corte corte, la frecuencia de muestreo fs y el orden del filtro orden. Luego, calcula la frecuencia de Nyquist (la mitad de la frecuencia de muestreo) y normaliza la frecuencia de corte dividiéndola entre la frecuencia de Nyquist. A continuación, utiliza la función butter para diseñar un filtro Butterworth pasa-bajos con las especificaciones dadas. Finalmente, aplica el filtro a la señal de entrada usando lfilter y devuelve la señal filtrada.
+La función pasa_bajo recibe como parámetros una señal "s", la frecuencia de corte "corte", la frecuencia de muestreo "fs" y el orden del filtro "orden". Luego, calcula la frecuencia de Nyquist (la mitad de la frecuencia de muestreo) y normaliza la frecuencia de corte dividiéndola entre la frecuencia de Nyquist. A continuación, utiliza la función butter para diseñar un filtro Butterworth pasa-bajos con las especificaciones dadas. Finalmente, aplica el filtro a la señal de entrada usando lfilter y devuelve la señal filtrada.
 
 La variable señal_pasabajo almacena la señal voltaje filtrada con un filtro de orden 4 y una frecuencia de corte de 70 Hz.
 
@@ -146,7 +146,7 @@ plt.ylabel("Voltaje (V)")
 plt.title("Grafica de la Señal Filtrada")
 plt.grid()
 ```
-La función pasa_alto recibe como parámetros la señal sf a filtrar (que en este caso es la salida del filtro pasa-bajos), la frecuencia de corte corte, la frecuencia de muestreo fs y el orden del filtro orden. Luego, diseña un filtro Butterworth pasa-altos utilizando la función butter y aplica el filtrado con lfilter.
+La función pasa_alto recibe como parámetros la señal "sf" a filtrar (que en este caso es la salida del filtro pasa-bajos), la frecuencia de corte "corte", la frecuencia de muestreo "fs" y el orden del filtro "orden". Luego, diseña un filtro Butterworth pasa-altos utilizando la función butter y aplica el filtrado con lfilter.
 
 La variable señal_filtrada almacena la señal señal_pasabajo filtrada con un filtro de orden 4 y una frecuencia de corte de 10 Hz. Finalmente, la señal resultante se grafica en función del tiempo.
 
