@@ -1,9 +1,6 @@
 # Señales Electromiográficas EMG  
  LABORATORIO - 4 PROCESAMIENTO DIGITAL DE SEÑALES
- 
- ## Autores 
-- Samuel Joel Peña Rojas
- _ _ _
+
 ## Requisitos
 - Python 3.12
 - Bibliotecas necesarias:
@@ -107,5 +104,11 @@ _ _ _
 [2] National Instruments, "NI-DAQmx Python API," GitHub repository, [Online]. Available: https://github.com/ni/nidaqmx-python. [Accessed: 24-Mar-2025].
 
 _ _ _
+
+
+ 
+ ## Autores 
+- Samuel Joel Peña Rojas
+
 
 
