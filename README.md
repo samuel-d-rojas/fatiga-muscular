@@ -114,7 +114,31 @@ Se muestra la señal Obtenida.
 
 _ _ _ 
 ## 3) Filtrado de la Señal:
+```python
+def pasa_bajo(s, corte, fs, orden):
+    nyquist = 0.5 * fs
+    corte_normalizada = corte / nyquist
+    b, a = butter(orden, corte_normalizada, btype='low', analog=False)
+    return lfilter(b, a, s)
+señal_pasabajo = pasa_bajo(voltaje, 70, fs, 4)
+```
+```c++
+def pasa_alto(sf, corte, fs, orden):
+    nyquist = 0.5 * fs
+    corte_normalizada = corte / nyquist
+    b, a = butter(orden, corte_normalizada, btype='high', analog=False)
+    return lfilter(b, a, sf)
 
+señal_filtrada = pasa_alto(señal_pasabajo, 10, fs, 4)
+plt.figure(figsize=(10, 5))
+plt.plot(tiempo, señal_filtrada,color="b", label="Señal")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Voltaje (V)")
+plt.title("Grafica de la Señal Filtrada")
+plt.grid()
+```
+
+_ _ _ 
 ## 4) Aventanamiento:
 
 ## 5) Análisis Espectral:
