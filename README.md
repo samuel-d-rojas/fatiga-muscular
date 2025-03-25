@@ -1,7 +1,9 @@
 # Señales Electromiográficas EMG  
  LABORATORIO - 4 PROCESAMIENTO DIGITAL DE SEÑALES
-
-
+ 
+ ## Autores 
+- Samuel Joel Peña Rojas
+ _ _ _
 ## Requisitos
 - Python 3.12
 - Bibliotecas necesarias:
@@ -106,5 +108,4 @@ _ _ _
 
 _ _ _
 
-## Autores 
-- Samuel Joel Peña Rojas
+
