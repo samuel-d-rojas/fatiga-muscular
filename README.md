@@ -104,6 +104,7 @@ plt.xlabel("Tiempo (s)")
 plt.ylabel("Voltaje (V)")
 plt.title("Gráfica de la Señal Adquirida")
 plt.grid()
+plt.show()
 ```
 Posteriormente la señal obtenida y guardada en "datos_adquiridos.txt, se importa en otro Programa de python para realizar su correspondiente procesamiento digital.
 Se muestra la señal Obtenida.
