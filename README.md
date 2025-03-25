@@ -128,6 +128,7 @@ La función pasa_bajo recibe como parámetros una señal s, la frecuencia de cor
 
 La variable señal_pasabajo almacena la señal voltaje filtrada con un filtro de orden 4 y una frecuencia de corte de 70 Hz.
 
+_ _ _
 ### Filtro pasa altos
 Este código aplica un filtro pasa-altos Butterworth a la señal obtenida del filtro anterior y la grafica:
 ```python
