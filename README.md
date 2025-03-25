@@ -89,7 +89,7 @@ with open("datos_adquiridos.txt", "w") as archivo_txt:
     for t, v in zip(time_axis, data):
         archivo_txt.write(f"{t:.6f}\t{v:.6f}\n")
 ```
-Para poder representar los datos correctamente, se genera un eje de tiempo. La función np.linspace(0, duration_seconds, num_samples, endpoint=False) crea un arreglo de valores que representa el tiempo de cada muestra, comenzando desde 0 segundos hasta la duración total de la adquisición. Es decir genera un arreglo de num_samples valores espaciados uniformemente entre 0 y duration_seconds, sin incluir duration_seconds debido a que endpoint=False. Finalmente, los datos adquiridos se guardan en un archivo de texto llamado "datos_adquiridos.txt".
+Para poder representar los datos correctamente, se genera un eje de tiempo. La función np.linspace(0, duration_seconds, num_samples, endpoint=False) crea un arreglo de valores que representa el tiempo de cada muestra, comenzando desde 0 segundos hasta la duración total de la adquisición. Es decir genera un arreglo de num_samples valores espaciados uniformemente entre 0 y duration_seconds, sin incluir duration_seconds debido a endpoint=False. Finalmente, los datos adquiridos se guardan en un archivo de texto llamado "datos_adquiridos.txt".
 _ _ _ 
 ## 3) Filtrado de la Señal:
 
