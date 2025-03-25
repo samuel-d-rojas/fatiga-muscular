@@ -108,7 +108,7 @@ plt.grid()
 Posteriormente la señal obtenida y guardada en "datos_adquiridos.txt, se importa en otro Programa de python para realizar su correspondiente procesamiento digital.
 Se muestra la señal Obtenida.
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/d488e8e3-0482-4c9f-bbf5-d13a0767a985" alt="imagen" width="200">
+    <img src="https://github.com/user-attachments/assets/d488e8e3-0482-4c9f-bbf5-d13a0767a985" alt="imagen" width="500">
 </p>
 
 _ _ _ 
