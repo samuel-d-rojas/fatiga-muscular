@@ -115,6 +115,7 @@ Se muestra la señal Obtenida.
 _ _ _ 
 ## 3) Filtrado de la Señal:
 ### Filtro pasa bajos
+El siguiente código implementa un filtro pasa-bajos digital utilizando un filtro Butterworth:
 ```python
 def pasa_bajo(s, corte, fs, orden):
     nyquist = 0.5 * fs
@@ -123,7 +124,12 @@ def pasa_bajo(s, corte, fs, orden):
     return lfilter(b, a, s)
 señal_pasabajo = pasa_bajo(voltaje, 70, fs, 4)
 ```
+La función pasa_bajo recibe como parámetros una señal s, la frecuencia de corte corte, la frecuencia de muestreo fs y el orden del filtro orden. Luego, calcula la frecuencia de Nyquist (la mitad de la frecuencia de muestreo) y normaliza la frecuencia de corte dividiéndola entre la frecuencia de Nyquist. A continuación, utiliza la función butter para diseñar un filtro Butterworth pasa-bajos con las especificaciones dadas. Finalmente, aplica el filtro a la señal de entrada usando lfilter y devuelve la señal filtrada.
+
+La variable señal_pasabajo almacena la señal voltaje filtrada con un filtro de orden 4 y una frecuencia de corte de 70 Hz.
+
 ### Filtro pasa altos
+Este código aplica un filtro pasa-altos Butterworth a la señal obtenida del filtro anterior y la grafica:
 ```python
 def pasa_alto(sf, corte, fs, orden):
     nyquist = 0.5 * fs
@@ -139,6 +145,11 @@ plt.ylabel("Voltaje (V)")
 plt.title("Grafica de la Señal Filtrada")
 plt.grid()
 ```
+La función pasa_alto recibe como parámetros la señal sf a filtrar (que en este caso es la salida del filtro pasa-bajos), la frecuencia de corte corte, la frecuencia de muestreo fs y el orden del filtro orden. Luego, diseña un filtro Butterworth pasa-altos utilizando la función butter y aplica el filtrado con lfilter.
+
+La variable señal_filtrada almacena la señal señal_pasabajo filtrada con un filtro de orden 4 y una frecuencia de corte de 10 Hz. Finalmente, la señal resultante se grafica en función del tiempo.
+
+Al aplicar primero el filtro pasa-bajos con un corte de 70 Hz y luego el filtro pasa-altos con un corte de 10 Hz, se obtiene un filtro pasa-banda, que permite el paso de frecuencias dentro del rango de 10 a 70 Hz, eliminando las frecuencias fuera de este intervalo.
 
 _ _ _ 
 ## 4) Aventanamiento:
