@@ -162,6 +162,8 @@ _ _ _
 
 [2] National Instruments, "NI-DAQmx Python API," GitHub repository, [Online]. Available: https://github.com/ni/nidaqmx-python. [Accessed: 24-Mar-2025].
 
+[3] National Instruments, "Understanding FFTs and Windowing," NI, [Online]. Available: https://www.ni.com/es/shop/data-acquisition/measurement-fundamentals/analog-fundamentals/understanding-ffts-and-windowing.html. [Accessed: 25-Mar-2025].
+
 _ _ _
 
 
