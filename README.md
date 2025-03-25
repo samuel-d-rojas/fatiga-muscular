@@ -91,6 +91,26 @@ with open("datos_adquiridos.txt", "w") as archivo_txt:
         archivo_txt.write(f"{t:.6f}\t{v:.6f}\n")
 ```
 Para poder representar los datos correctamente, se genera un eje de tiempo. La función np.linspace(0, duration_seconds, num_samples, endpoint=False) crea un arreglo de valores que representa el tiempo de cada muestra, comenzando desde 0 segundos hasta la duración total de la adquisición. Es decir genera un arreglo de num_samples valores espaciados uniformemente entre 0 y duration_seconds, sin incluir duration_seconds debido a endpoint=False. Finalmente, los datos adquiridos se guardan en un archivo de texto llamado "datos_adquiridos.txt".
+
+_ _ _
+```python
+señal = np.loadtxt("datos_adquiridos.txt", skiprows=1)        
+tiempo = señal[:, 0]  
+voltaje = señal[:, 1] 
+
+plt.figure(figsize=(10, 5))
+plt.plot(tiempo, voltaje,color="b", label="Señal")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Voltaje (V)")
+plt.title("Gráfica de la Señal Adquirida")
+plt.grid()
+```
+Posteriormente la señal obtenida y guardada en "datos_adquiridos.txt, se importa en otro Programa de python para realizar su correspondiente procesamiento digital.
+Se muestra la señal Obtenida.
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/d488e8e3-0482-4c9f-bbf5-d13a0767a985" alt="imagen" width="200">
+</p>
+
 _ _ _ 
 ## 3) Filtrado de la Señal:
 
