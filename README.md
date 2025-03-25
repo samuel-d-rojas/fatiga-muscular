@@ -172,11 +172,3 @@ _ _ _
 [3] National Instruments, "Understanding FFTs and Windowing," NI, [Online]. Available: https://www.ni.com/es/shop/data-acquisition/measurement-fundamentals/analog-fundamentals/understanding-ffts-and-windowing.html. [Accessed: 25-Mar-2025].
 
 _ _ _
-
-
- 
- ## Autores 
-- Samuel Joel Peña Rojas
-
-
-
