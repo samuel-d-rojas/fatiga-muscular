@@ -115,29 +115,12 @@ Se muestra la señal Obtenida.
 _ _ _ 
 ## 3) Filtrado de la Señal:
 ```python
-% Definir parámetros
-fs = 1000;        % Frecuencia de muestreo (Hz)
-fc = 70;          % Frecuencia de corte (Hz)
-orden = 4;        % Orden del filtro
-
-% Calcular la frecuencia normalizada
-nyquist = fs / 2;
-corte_normalizada = fc / nyquist;
-
-% Diseñar el filtro Butterworth pasa-bajo
-[b, a] = butter(orden, corte_normalizada, 'low');
-
-% Aplicar el filtro a la señal
-señal_pasabajo = filter(b, a, voltaje);
-
-% Graficar la señal filtrada
-figure;
-plot(tiempo, señal_pasabajo, 'r');
-xlabel('Tiempo (s)');
-ylabel('Amplitud');
-title('Señal Filtrada - Pasa Bajo');
-grid on;
-
+def pasa_bajo(s, corte, fs, orden):
+    nyquist = 0.5 * fs
+    corte_normalizada = corte / nyquist
+    b, a = butter(orden, corte_normalizada, btype='low', analog=False)
+    return lfilter(b, a, s)
+señal_pasabajo = pasa_bajo(voltaje, 70, fs, 4)
 ```
 ```python
 def pasa_alto(sf, corte, fs, orden):
