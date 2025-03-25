@@ -59,7 +59,7 @@ duration_minutes = 2
 duration_seconds = duration_minutes * 60  
 num_samples = int(sample_rate * duration_seconds)
 ```
-En esta sección se definen algunos parametros. Se establece la frecuencia de muestreo en 1000 Hz (sample_rate = 1000), lo que significa que se capturarán 1000 muestras por segundo. La duración de la adquisición se define en minutos (duration_minutes = 2), y se convierte a segundos (duration_seconds = duration_minutes * 60). Luego, se determina el número total de muestras a capturar (num_samples = int(sample_rate * duration_seconds)) multiplicando la frecuencia de muestreo por la duración total en segundos.
+En esta sección se definen algunos parametros. Se establece la frecuencia de muestreo en 1000 Hz (sample_rate = 1000), lo que significa que se capturarán 1000 muestras por segundo. La duración de la adquisición se define en minutos (duration_minutes = 2), y se convierte a segundos (duration_seconds = duration_minutes * 60). Luego, se determina el número total de muestras a capturar (num_samples = int(sample_rate * duration_seconds)).
 
 ```python
 with nidaqmx.Task() as task:
@@ -80,7 +80,7 @@ with nidaqmx.Task() as task:
 ```
 Para llevar a cabo la adquisición de datos, se utiliza un bloque with nidaqmx.Task() as task:. Esto crea una tarea en el DAQ. Dentro de esta tarea, se agrega un canal de entrada analógica (task.ai_channels.add_ai_voltage_chan("Dev3/ai0")), que está configurado para medir voltaje en el canal "Dev3/ai0". Posteriormente, se configura el temporizador de muestreo mediante task.timing.cfg_samp_clk_timing(). Aquí se define la tasa de muestreo (sample_rate), el modo de adquisición (AcquisitionType.FINITE, que indica que se capturarán un número finito de muestras), y el número total de muestras a adquirir (samps_per_chan=num_samples). Esta configuración permite que el DAQ realice la captura de datos con una frecuencia constante y por un tiempo determinado.
 
-Una vez configurada la tarea, se inicia la adquisición de datos con task.start(). Una vez finalizada la adquisición, se leen los datos con task.read(number_of_samples_per_channel=num_samples), lo que devuelve una lista de valores de voltaje adquiridos por el DAQ.
+Una vez configurada la tarea, se inicia la adquisición de datos con task.start(). Finalizada la adquisición, se leen los datos con task.read(number_of_samples_per_channel=num_samples), lo que devuelve una lista de valores de voltaje adquiridos por el DAQ.
 
 ```python
 time_axis = np.linspace(0, duration_seconds, num_samples, endpoint=False)
@@ -90,10 +90,6 @@ with open("datos_adquiridos.txt", "w") as archivo_txt:
         archivo_txt.write(f"{t:.6f}\t{v:.6f}\n")
 ```
 Para poder representar los datos correctamente, se genera un eje de tiempo. La función np.linspace(0, duration_seconds, num_samples, endpoint=False) crea un arreglo de valores que representa el tiempo de cada muestra, comenzando desde 0 segundos hasta la duración total de la adquisición. Es decir genera un arreglo de num_samples valores espaciados uniformemente entre 0 y duration_seconds, sin incluir duration_seconds debido a que endpoint=False. Finalmente, los datos adquiridos se guardan en un archivo de texto llamado "datos_adquiridos.txt".
-
-
-
-
 _ _ _ 
 ## 3) Filtrado de la Señal:
 
