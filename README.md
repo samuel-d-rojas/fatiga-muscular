@@ -97,8 +97,6 @@ _ _ _
 
 ## 5) Análisis Espectral:
 
-## Conclusión
-
 ## Bibliografias
 [1] Pololu, "Muscle Sensor v3 User’s Manual," [Online]. Available: https://www.pololu.com/file/0J745/Muscle_Sensor_v3_users_manual.pdf. [Accessed: 24-Mar-2025].
 
