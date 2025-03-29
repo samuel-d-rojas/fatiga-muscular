@@ -182,7 +182,7 @@ ventana11 = sf[85100:85570] * hanning[:470]
 ventana12 = sf[85570:86400] * hanning[:830]
 señal_ventaneadaf = np.concatenate([ventana7, ventana8, ventana9, ventana10, ventana11, ventana12])
 ```
-Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf
+Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf. Nuevamente, se aplica la transformada de Fourier a cada ventana para obtener su espectro de frecuencias.
 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/2c2eaf4c-b0df-4d4a-9827-8033c4fea131" alt="imagen" width="400">
