@@ -164,14 +164,16 @@ ventana8 = sf[83000:83660] * hanning[:660]
 ventana9 = sf[83660:84560] * hanning[:900]
 ventana10 = sf[84560:85100] * hanning[:540]
 ventana11 = sf[85100:85570] * hanning[:470]
-ventana12 = sf[85570:86300] * hanning[:730]
+ventana12 = sf[85570:86400] * hanning[:830]
 señal_ventaneadaf = np.concatenate([ventana7, ventana8, ventana9, ventana10, ventana11, ventana12])
 ```
 Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf
 
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/25d6bc31-2706-43ad-a951-ae28013df97c" alt="imagen" width="500">
+    <img src="https://github.com/user-attachments/assets/2c2eaf4c-b0df-4d4a-9827-8033c4fea131" alt="imagen" width="500">
 </p>
+
+
 
 
 
