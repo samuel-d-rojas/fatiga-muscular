@@ -8,6 +8,16 @@
   - numpy
   - matplotlib
   - scipy
+ 
+ ```python
+# Importamos las librerías necesarias
+import nidaqmx
+from nidaqmx.constants import AcquisitionType
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import butter, lfilter
+from scipy.stats import ttest_rel
+```
 
  _ _ _
 ## Introducción
