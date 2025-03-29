@@ -245,8 +245,24 @@ for i in range(1, 13):
     <img src="https://github.com/user-attachments/assets/d24c997b-d753-4d09-bb3e-58d79be0d7e8" alt="imagen" width="400">
 </p>
 
-La mediana obtenida en cada ventana se guarda en una lista correspondiente. Primero, se registran las contracciones iniciales y luego las finales, cuando el músculo entra en fatiga
+La mediana obtenida en cada ventana se guarda en una lista correspondiente. Primero, se registran las primeras 6 contracciones iniciales y luego las 6 ultimas, cuando el músculo entra en fatiga.
+Finalmente se realiza la prueba de hipotesis haciendo uso de scipy.
 
+```
+stat, p = ttest_rel(antes, despues)
+
+print(f'P-valor: {p}')
+
+if p < 0.05:
+    print("Rechazamos la hipotesis H₀, La fatiga afecta significativamente la mediana de frecuencia.")
+else:
+    print("No se puede rechazar H₀, No hay evidencia suficiente de un cambio significativo.")
+
+```
+
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/0017a9a3-f2dd-44a5-b1b4-3982d2abc4fa" alt="imagen" width="500">
+</p>
 
 
 
