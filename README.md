@@ -114,7 +114,7 @@ Se muestra la señal Obtenida.
 
 _ _ _ 
 ## 3) Filtrado de la Señal:
-### Filtro pasa bajos
+### Filtro Pasa Banda
 El siguiente código implementa un filtro pasa-banda digital utilizando un filtro Butterworth. Primero, establece un filtro pasa-bajos con una frecuencia de corte de 400 Hz y un filtro pasa-altos con una frecuencia de corte de 10 Hz, ambos de orden 10. Luego, la señal se filtra primero con el filtro pasa-bajos y posteriormente con el pasa-altos, eliminando frecuencias fuera del rango deseado. Finalmente, la señal filtrada se devuelve como salida.
 ```python
 def filtro(s,fs):
@@ -137,7 +137,37 @@ sf = filtro(voltaje,fs)
 
 _ _ _ 
 ## 4) Aventanamiento:
+Se aplicala técnica de ventaneo a la señal filtrada sf utilizando la ventana de Hanning, que suaviza los bordes de cada segmento para minimizar efectos de discontinuidad en el análisis espectral.
+### Primeras contracciones
+```python
+hanning = np.hanning(1000) 
+ventana1 = sf[:1000] * hanning
+ventana2 = sf[1000:2000] * hanning
+ventana3 = sf[2000:2700] * hanning[:700]
+ventana4 = sf[2700:3400] * hanning[:700]
+ventana5 = sf[3400:4100] * hanning[:700]
+ventana6 = sf[4100:4800] * hanning[:700]
+señal_ventaneada = np.concatenate([ventana1, ventana2, ventana3, ventana4, ventana5, ventana6])
+```
+Primero, se genera una ventana de Hanning de 1000 puntos, que se utiliza para multiplicar los primeros dos segmentos de la señal, cada uno de 1000 muestras. Luego, se extraen cuatro segmentos adicionales de 700 muestras cada uno, a los cuales se les aplica la parte correspondiente de la ventana de Hanning. Finalmente, todos los segmentos ventaneados se concatenan para formar una señal continua con transiciones más suaves entre las secciones.
 
+_ _ _
+### Ultimas Contracciones
+```python
+ventana7 = sf[82400:83000] * hanning[:600]
+ventana8 = sf[83000:83660] * hanning[:660]
+ventana9 = sf[83660:84560] * hanning[:900]
+ventana10 = sf[84560:85100] * hanning[:540]
+ventana11 = sf[85100:85570] * hanning[:470]
+ventana12 = sf[85570:86300] * hanning[:730]
+señal_ventaneadaf = np.concatenate([ventana7, ventana8, ventana9, ventana10, ventana11, ventana12])
+```
+Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf
+
+
+
+
+_ _ _
 ## 5) Análisis Espectral:
 
 ## Bibliografias
