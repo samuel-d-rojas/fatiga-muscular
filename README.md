@@ -164,8 +164,8 @@ Primero, se genera una ventana de Hanning de 1000 puntos, que se utiliza para mu
 Luego, se aplica la transformada de Fourier para obtener el espectro de frecuencias en cada uno de los intervalos de las ventanas.
 
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/d6ab7258-2d25-46ff-bd9c-deb251aa3c95" alt="imagen" width="300">
-    <img src="https://github.com/user-attachments/assets/8e67297d-7d2f-43da-9c13-3b42da1f35e7" alt="imagen" width="300">
+    <img src="https://github.com/user-attachments/assets/d6ab7258-2d25-46ff-bd9c-deb251aa3c95" alt="imagen" width="400">
+    <img src="https://github.com/user-attachments/assets/8e67297d-7d2f-43da-9c13-3b42da1f35e7" alt="imagen" width="400">
 </p>
 
 
@@ -185,8 +185,10 @@ señal_ventaneadaf = np.concatenate([ventana7, ventana8, ventana9, ventana10, ve
 Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf
 
 <p align="center">
-    <img src="https://github.com/user-attachments/assets/2c2eaf4c-b0df-4d4a-9827-8033c4fea131" alt="imagen" width="500">
+    <img src="https://github.com/user-attachments/assets/2c2eaf4c-b0df-4d4a-9827-8033c4fea131" alt="imagen" width="400">
+ <img src="https://github.com/user-attachments/assets/1e67d02b-2812-4f31-a341-c48baf78dcaa" alt="imagen" width="400">
 </p>
+
 
 
 
