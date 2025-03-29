@@ -214,7 +214,48 @@ _ _ _
 ## 5) Análisis Espectral:
 
 ### Prueba de Hipotesis
+Además de determinar el espectro de frecuencias, se calcula la frecuencia mediana en cada ventana con el fin de analizar la fatiga mediante una prueba de hipótesis.
 
+```python
+antes = []
+despues = []        
+
+for i in range(1, 13):
+    ventana = eval(f"ventana{i}")  
+    N = len(ventana)
+    
+    fre = np.fft.fftfreq(N, 1/fs)
+    frecuencias = fre[:N//2]
+    espectro = np.fft.fft(ventana) / N
+    magnitud = 2 * np.abs(espectro[:N//2])
+    
+    psd = magnitud ** 2
+    potencia_total = np.sum(psd)
+    potencia_acumulada = np.cumsum(psd)
+    
+    fm_index = np.where(potencia_acumulada >= potencia_total / 2)[0][0]
+    fm = frecuencias[fm_index]
+
+    if 1<=i<=6:
+        antes.append(fm)
+    else:
+        despues.append(fm)
+```
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/d24c997b-d753-4d09-bb3e-58d79be0d7e8" alt="imagen" width="400">
+</p>
+
+La mediana obtenida en cada ventana se guarda en una lista correspondiente. Primero, se registran las contracciones iniciales y luego las finales, cuando el músculo entra en fatiga
+
+
+
+
+
+
+
+
+
+_ _ _
 
 ## Bibliografias
 [1] Pololu, "Muscle Sensor v3 User’s Manual," [Online]. Available: https://www.pololu.com/file/0J745/Muscle_Sensor_v3_users_manual.pdf. [Accessed: 24-Mar-2025].
