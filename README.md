@@ -169,6 +169,12 @@ señal_ventaneadaf = np.concatenate([ventana7, ventana8, ventana9, ventana10, ve
 ```
 Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf
 
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/25d6bc31-2706-43ad-a951-ae28013df97c" alt="imagen" width="500">
+</p>
+
+
+
 
 
 
