@@ -209,6 +209,7 @@ for i in range(1, 13):
 </p>
 
 Se presenta el espectro de frecuencias correspondiente a la primera contracción y a la última contracción en el inicio de la fatiga.
+Al comparar ambas gráficas, se observa una disminución en las frecuencias presentes en el espectro de la señal a medida que se acerca la fatiga. Este cambio indica una reducción en la activación de componentes de alta frecuencia, lo que puede estar asociado a una disminución en la velocidad de conducción de las fibras musculares. Estos resultados sugieren que la fatiga muscular influye en la dinámica espectral de la señal, reflejando una disminución en la eficiencia neuromuscular conforme avanza el esfuerzo.
 
 
 
