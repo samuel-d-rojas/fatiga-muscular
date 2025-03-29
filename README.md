@@ -270,6 +270,7 @@ else:
     <img src="https://github.com/user-attachments/assets/0017a9a3-f2dd-44a5-b1b4-3982d2abc4fa" alt="imagen" width="500">
 </p>
 
+En el test de hipótesis realizado, se descartó la hipótesis nula (𝐻₀) al observar que la mediana de las frecuencias cerca de la fatiga disminuyó, indicando una diferencia significativa. Esto sugiere que, a medida que el músculo se fatiga, hay una reducción en las frecuencias características de la señal, lo que puede estar relacionado con una menor velocidad de conducción en las fibras musculares y una modificación en el reclutamiento de unidades motoras. La disminución de la velocidad de conducción se debe a cambios en la excitabilidad de la membrana, lo que ralentiza la propagación del potencial de acción y afecta la activación eficiente del músculo.
 
 
 
