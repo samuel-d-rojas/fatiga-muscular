@@ -130,7 +130,7 @@ El siguiente código implementa un filtro pasa-banda digital utilizando un filtr
 ```python
 def filtro(s,fs):
     orden = 10
-    corte1 = 250
+    corte1 = 400
     corte2 = 20
     nyquist = 0.5 * fs
     corte_normalizada1 = corte1 / nyquist
