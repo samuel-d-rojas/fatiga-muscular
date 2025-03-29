@@ -151,8 +151,8 @@ señal_ventaneada = np.concatenate([ventana1, ventana2, ventana3, ventana4, vent
 ```
 Primero, se genera una ventana de Hanning de 1000 puntos, que se utiliza para multiplicar los primeros dos segmentos de la señal, cada uno de 1000 muestras. Luego, se extraen cuatro segmentos adicionales de 700 muestras cada uno, a los cuales se les aplica la parte correspondiente de la ventana de Hanning. Finalmente, todos los segmentos ventaneados se concatenan para formar una señal continua con transiciones más suaves entre las secciones.
 
-<p class="center">
-    <img src="https://github.com/user-attachments/assets/d6ab7258-2d25-46ff-bd9c-deb251aa3c95" alt="imagen" width="500">
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/d6ab7258-2d25-46ff-bd9c-deb251aa3c95" alt="imagen" width="450">
 </p>
 
 
