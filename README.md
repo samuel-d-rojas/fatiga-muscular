@@ -141,6 +141,7 @@ def filtro(s,fs):
     return lfilter(b2, a2, señal_f1)    
 sf = filtro(voltaje,fs)
 ```
+Después de aplicar el filtro pasa-altos, la señal, que inicialmente era positiva, adquirió valores negativos. Esto puede deberse a la eliminación del componente de corriente directa (DC), lo que hizo que la señal comenzara a oscilar alrededor de cero. Esto ocurre porque un filtro pasa-altos elimina las frecuencias bajas, incluyendo cualquier desplazamiento positivo presente en la señal original.
 
 
 
@@ -168,9 +169,6 @@ Primero se genera una ventana de Hanning de 1000 puntos, que se utiliza para mul
 </p>
 
 
-
-
-_ _ _
 ### Ultimas Contracciones
 ```python
 ventana7 = sf[82400:83000] * hanning[:600]
@@ -187,6 +185,11 @@ Este código aplica ventanas de Hanning a seis segmentos específicos de la señ
     <img src="https://github.com/user-attachments/assets/2c2eaf4c-b0df-4d4a-9827-8033c4fea131" alt="imagen" width="400">
 </p>
 
+Se aplicó el venteado únicamente a algunas contracciones, específicamente a las primeras y últimas antes de la fatiga. Para ello, se utilizó una ventana de Hanning con el fin de dividir cada contracción en intervalos de tiempo. Esta ventana fue seleccionada porque ayuda a suavizar los extremos de la señal, evitando cambios bruscos que puedan distorsionar el análisis. Su forma es similar a una curva de coseno, lo que permite que los valores en los bordes de la señal se reduzcan gradualmente a cero, minimizando la discontinuidad en los límites de cada intervalo y mejorando la precisión del análisis espectral.
+
+Para determinar el tamaño de cada ventana, se analizó la gráfica de la señal y se realizó una estimación de la duración de cada contracción, dado que la duración variaba entre ellas. Esto permitió ajustar el tamaño de la ventana de manera adecuada para cada caso, asegurando que el análisis se adaptara a estas diferencias
+
+_ _ _
 ### trasformada de fourier
 Luego, se aplica la transformada de Fourier a cada ventana para obtener su espectro de frecuencias.
 
@@ -204,6 +207,8 @@ for i in range(1, 13):
         <img src="https://github.com/user-attachments/assets/8e67297d-7d2f-43da-9c13-3b42da1f35e7" alt="imagen" width="400">
     <img src="https://github.com/user-attachments/assets/1e67d02b-2812-4f31-a341-c48baf78dcaa" alt="imagen" width="400">
 </p>
+
+Se presenta el espectro de frecuencias correspondiente a la primera contracción y a la última contracción antes de la fatiga.
 
 
 
