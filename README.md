@@ -161,11 +161,10 @@ ventana6 = sf[4100:4800] * hanning[:700]
 señal_ventaneada = np.concatenate([ventana1, ventana2, ventana3, ventana4, ventana5, ventana6])
 ```
 Primero, se genera una ventana de Hanning de 1000 puntos, que se utiliza para multiplicar los primeros dos segmentos de la señal, cada uno de 1000 muestras. Luego, se extraen cuatro segmentos adicionales de 700 muestras cada uno, a los cuales se les aplica la parte correspondiente de la ventana de Hanning. Finalmente, todos los segmentos ventaneados se concatenan para formar una señal continua con transiciones más suaves entre las secciones.
-Luego, se aplica la transformada de Fourier para obtener el espectro de frecuencias en cada uno de los intervalos de las ventanas.
 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/d6ab7258-2d25-46ff-bd9c-deb251aa3c95" alt="imagen" width="400">
-    <img src="https://github.com/user-attachments/assets/8e67297d-7d2f-43da-9c13-3b42da1f35e7" alt="imagen" width="400">
+    
 </p>
 
 
@@ -182,15 +181,29 @@ ventana11 = sf[85100:85570] * hanning[:470]
 ventana12 = sf[85570:86400] * hanning[:830]
 señal_ventaneadaf = np.concatenate([ventana7, ventana8, ventana9, ventana10, ventana11, ventana12])
 ```
-Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf. Nuevamente, se aplica la transformada de Fourier a cada ventana para obtener su espectro de frecuencias.
+Este código aplica ventanas de Hanning a seis segmentos específicos de la señal filtrada sf, pero en rangos de índices más altos. Cada segmento se extrae con una cantidad diferente de muestras y se multiplica por una porción de la ventana de Hanning correspondiente. Posteriormente, todos los segmentos ventaneados se concatenan para formar señal_ventaneadaf.
 
 <p align="center">
     <img src="https://github.com/user-attachments/assets/2c2eaf4c-b0df-4d4a-9827-8033c4fea131" alt="imagen" width="400">
- <img src="https://github.com/user-attachments/assets/1e67d02b-2812-4f31-a341-c48baf78dcaa" alt="imagen" width="400">
 </p>
 
+### trasformada de fourier
+Luego, se aplica la transformada de Fourier a cada ventana para obtener su espectro de frecuencias.
 
-
+```python
+for i in range(1, 13):
+    ventana = eval(f"ventana{i}")  
+    N = len(ventana)
+    
+    fre = np.fft.fftfreq(N, 1/fs)
+    frecuencias = fre[:N//2]
+    espectro = np.fft.fft(ventana) / N
+    magnitud = 2 * np.abs(espectro[:N//2])
+```
+<p align="center">
+        <img src="https://github.com/user-attachments/assets/8e67297d-7d2f-43da-9c13-3b42da1f35e7" alt="imagen" width="400">
+    <img src="https://github.com/user-attachments/assets/1e67d02b-2812-4f31-a341-c48baf78dcaa" alt="imagen" width="400">
+</p>
 
 
 
@@ -199,6 +212,9 @@ Este código aplica ventanas de Hanning a seis segmentos específicos de la señ
 
 _ _ _
 ## 5) Análisis Espectral:
+
+### Prueba de Hipotesis
+
 
 ## Bibliografias
 [1] Pololu, "Muscle Sensor v3 User’s Manual," [Online]. Available: https://www.pololu.com/file/0J745/Muscle_Sensor_v3_users_manual.pdf. [Accessed: 24-Mar-2025].
