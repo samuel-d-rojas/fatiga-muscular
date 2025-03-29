@@ -89,7 +89,7 @@ with nidaqmx.Task() as task:
 
     data = task.read(number_of_samples_per_channel=num_samples)
 ```
-Para llevar a cabo la adquisición de datos, se utiliza un bloque with nidaqmx.Task() as task:. Esto crea una tarea en el DAQ. Dentro de esta tarea, se agrega un canal de entrada analógica (task.ai_channels.add_ai_voltage_chan("Dev3/ai0")), que está configurado para medir voltaje en el canal "Dev3/ai0". Posteriormente, se configura el temporizador de muestreo mediante task.timing.cfg_samp_clk_timing(). Aquí se define la tasa de muestreo (sample_rate), el modo de adquisición (AcquisitionType.FINITE, que indica que se capturarán un número finito de muestras), y el número total de muestras a adquirir (samps_per_chan=num_samples). Esta configuración permite que el DAQ realice la captura de datos con una frecuencia constante y por un tiempo determinado.
+Para llevar a cabo la adquisición de datos, se utiliza un bloque with nidaqmx.Task() as task:. Esto crea una tarea en el DAQ. Dentro de esta tarea, se agrega un canal de entrada analógica (task.ai_channels.add_ai_voltage_chan("Dev3/ai0")), que está configurado para medir voltaje en el canal "Dev3/ai0". 
 
 Una vez configurada la tarea, se inicia la adquisición de datos con task.start(). Finalizada la adquisición, se leen los datos con task.read(number_of_samples_per_channel=num_samples), lo que devuelve una lista de valores de voltaje adquiridos por el DAQ.
 
