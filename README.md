@@ -248,7 +248,7 @@ for i in range(1, 13):
 La mediana obtenida en cada ventana se guarda en una lista correspondiente. Primero, se registran las primeras 6 contracciones iniciales y luego las 6 ultimas, cuando el músculo entra en fatiga.
 Finalmente se realiza la prueba de hipotesis haciendo uso de scipy.
 
-```
+ ```python
 stat, p = ttest_rel(antes, despues)
 
 print(f'P-valor: {p}')
