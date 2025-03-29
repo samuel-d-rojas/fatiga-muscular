@@ -89,9 +89,9 @@ with nidaqmx.Task() as task:
 
     data = task.read(number_of_samples_per_channel=num_samples)
 ```
-Para llevar a cabo la adquisición de datos, se utiliza un bloque with nidaqmx.Task() as task:. Esto crea una tarea en el DAQ. Dentro de esta tarea, se agrega un canal de entrada analógica (task.ai_channels.add_ai_voltage_chan("Dev3/ai0")), que está configurado para medir voltaje en el canal "Dev3/ai0". 
+Para llevar a cabo la adquisición de datos, se utiliza un bloque with nidaqmx.Task() as task:, que crea una tarea en el DAQ. Dentro de esta tarea, se agrega un canal de entrada analógica con task.ai_channels.add_ai_voltage_chan("Dev3/ai0"), configurado para medir voltaje en el canal Dev3/ai0.
 
-Una vez configurada la tarea, se inicia la adquisición de datos con task.start(). Finalizada la adquisición, se leen los datos con task.read(number_of_samples_per_channel=num_samples), lo que devuelve una lista de valores de voltaje adquiridos por el DAQ.
+Una vez configurada la tarea, la adquisición de datos comienza con task.start(). Al finalizar, los datos se leen con task.read(number_of_samples_per_channel=num_samples), lo que devuelve una lista de valores de voltaje adquiridos.
 
 ```python
 time_axis = np.linspace(0, duration_seconds, num_samples, endpoint=False)
@@ -100,9 +100,9 @@ with open("datos_adquiridos.txt", "w") as archivo_txt:
     for t, v in zip(time_axis, data):
         archivo_txt.write(f"{t:.6f}\t{v:.6f}\n")
 ```
-Para poder representar los datos correctamente, se genera un eje de tiempo. La función np.linspace(0, duration_seconds, num_samples, endpoint=False) crea un arreglo de valores que representa el tiempo de cada muestra, comenzando desde 0 segundos hasta la duración total de la adquisición. Es decir genera un arreglo de num_samples valores espaciados uniformemente entre 0 y duration_seconds, sin incluir duration_seconds debido a endpoint=False. Finalmente, los datos adquiridos se guardan en un archivo de texto llamado "datos_adquiridos.txt".
+**"Para representar los datos correctamente, se genera un eje de tiempo. La función np.linspace(0, duration_seconds, num_samples, endpoint=False) crea un arreglo de valores que representa el tiempo de cada muestra, comenzando en 0 segundos y extendiéndose hasta la duración total de la adquisición. Finalmente, los datos adquiridos se guardan en un archivo de texto llamado datos_adquiridos.txt.
 
-_ _ _
+
 ```python
 señal = np.loadtxt("datos_adquiridos.txt", skiprows=1)        
 tiempo = señal[:, 0]  
