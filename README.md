@@ -208,7 +208,7 @@ for i in range(1, 13):
     <img src="https://github.com/user-attachments/assets/1e67d02b-2812-4f31-a341-c48baf78dcaa" alt="imagen" width="400">
 </p>
 
-Se presenta el espectro de frecuencias correspondiente a la primera contracción y a la última contracción antes de la fatiga.
+Se presenta el espectro de frecuencias correspondiente a la primera contracción y a la última contracción en el inicio de la fatiga.
 
 
 
